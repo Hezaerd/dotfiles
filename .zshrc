@@ -38,11 +38,7 @@ zinit cdreplay -q
 
 # --- Prompt ---
 
-if [[ -n "$SSH_CONNECTION" ]]; then
-  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.vps.toml)"
-else
-  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
-fi
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
 
 # --- Keybinding  ---
 
