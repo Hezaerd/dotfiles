@@ -52,21 +52,21 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     type = 'text'
     style = 'plain'
     foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}magenta{{end}}",
+      "{{if gt .Code 0}}#81C784{{end}}",
+      "{{if eq .Code 0}}#C5E1A5{{end}}",
     ]
     background = 'transparent'
     template = '❯'
 
 [transient_prompt]
   foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
+    "{{if gt .Code 0}}#81C784{{end}}",
+    "{{if eq .Code 0}}#C5E1A5{{end}}",
   ]
   background = 'transparent'
   template = '❯ '
 
 [secondary_prompt]
-  foreground = 'magenta'
+  foreground = '#C5E1A5'
   background = 'transparent'
   template = '❯❯ '

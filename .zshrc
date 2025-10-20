@@ -26,6 +26,9 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::aws
+zinit snippet OMZP::docker
+zinit snippet OMZP::terraform
 
 # load completion
 
@@ -35,7 +38,11 @@ zinit cdreplay -q
 
 # --- Prompt ---
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+if [[ -n "$SSH_CONNECTION" ]]; then
+  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.vps.toml)"
+else
+  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
+fi
 
 # --- Keybinding  ---
 
@@ -79,6 +86,9 @@ alias explorer="explorer.exe ."
 alias ..="cd .."
 alias ...="cd ../.."
 
+# fastfetch
+alias fetch="clear && fastfetch"
+
 # bat
 alias cat="batcat"
 alias fcat="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
@@ -107,3 +117,15 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi \
 --preview-window=right:70%"
+
+# node & nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# bun completions
+[ -s "/home/admin/.bun/_bun" ] && source "/home/admin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
